@@ -1,0 +1,92 @@
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import internal.GlobalVariable as GlobalVariable
+import org.openqa.selenium.Keys as Keys
+
+
+if(!GlobalVariable.avoidOpenBrowserLoopF) {
+	'Open Web'
+	WebUI.openBrowser(GlobalVariable.webUrl)
+	
+	'Scroll to element'
+	WebUI.scrollToElement(findTestObject('Home/h5 - elements'), 1)
+	
+	'Click "Elements" menu'
+	WebUI.click(findTestObject('Home/h5 - elements'))
+	
+	'Click "Text Box" page on menu list'
+	WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
+	}
+
+
+
+
+
+
+//WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
+'Input Full Name from data binding in Full Name field'
+WebUI.setText(findTestObject('Text Box Page/input - Full Name'), fullName)
+
+'Input email from data binding in email field'
+WebUI.setText(findTestObject('Text Box Page/input - Email'), email)
+
+'Input current address from data binding in current address field'
+WebUI.setText(findTestObject('Text Box Page/textarea - Current Address'), currentAddress)
+
+'Input permanent address from data binding in current permanent address field'
+WebUI.setText(findTestObject('Text Box Page/textarea - Permanent Address'), permanentAddress)
+
+'Submit form'
+WebUI.click(findTestObject('Text Box Page/button - Submit'))
+
+if ((fullName != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'))) {
+    WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']))
+
+    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 'Name:' + fullName)
+} else {
+    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 1)
+}
+
+if (email == '') {
+    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 1)
+} else if (!(email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')) {
+    WebUI.verifyMatch(WebUI.getAttribute(findTestObject('Text Box Page/input - Email'), 'class'), '.*field-error.*', true)
+} else {
+    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 'Email:' + email)
+}
+
+if ((currentAddress != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'))) {
+    WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']))
+
+    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 'Current Address :' + 
+        currentAddress)
+} else {
+    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 
+        1)
+}
+
+if ((permanentAddress != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'))) {
+    WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']))
+
+    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 'Permananet Address :' + 
+        permanentAddress)
+} else {
+    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 
+        1)
+}
+
+
