@@ -53,7 +53,8 @@ class AvoidOpenBrowserLoop {
 	@BeforeTestSuite
 	def sampleBeforeTestSuite(TestSuiteContext testSuiteContext) {
 		if(GlobalVariable.avoidOpenBrowserLoopF) {
-			WebUI.openBrowser('')
+			WebUI.openBrowser(GlobalVariable.webUrl)
+			WebUI.maximizeWindow()
 		}
 	}
 

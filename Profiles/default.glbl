@@ -13,7 +13,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>false</initValue>
+      <initValue>true</initValue>
       <name>avoidOpenBrowserLoopF</name>
       <protected>false</protected>
    </GlobalVariableEntity>
