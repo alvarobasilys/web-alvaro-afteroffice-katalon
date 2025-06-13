@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span - Radio Button</name>
+   <name>svg - Get All Childs From Current Node By Node Name</name>
    <tag></tag>
-   <elementGuidId>fef2251f-6746-4352-a2d9-92e85fcd0fd8</elementGuidId>
+   <elementGuidId>608a330b-3283-47d5-8565-eace71ab9f53</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//span[text() = &quot;Radio Button&quot;]</value>
+         <value>//span[.//span[text() = &quot;${nodeName}&quot;]]/../ol//span[@class = &quot;rct-checkbox&quot;]/*[contains(@class,&quot;rct-icon&quot;)]</value>
       </entry>
       <entry>
          <key>BASIC</key>

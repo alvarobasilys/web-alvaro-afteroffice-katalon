@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span - Radio Button</name>
+   <name>button - Expand All Button</name>
    <tag></tag>
-   <elementGuidId>fef2251f-6746-4352-a2d9-92e85fcd0fd8</elementGuidId>
+   <elementGuidId>d1530a2f-f10d-4436-b963-7dd851e1112d</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//span[text() = &quot;Radio Button&quot;]</value>
+         <value>//button[@title=&quot;Expand all&quot;]</value>
       </entry>
       <entry>
          <key>BASIC</key>

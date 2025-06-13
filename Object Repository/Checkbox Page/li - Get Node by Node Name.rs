@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span - Radio Button</name>
+   <name>li - Get Node by Node Name</name>
    <tag></tag>
-   <elementGuidId>fef2251f-6746-4352-a2d9-92e85fcd0fd8</elementGuidId>
+   <elementGuidId>f55da4ca-a5fd-48a5-ad76-6e520846181f</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//span[text() = &quot;Radio Button&quot;]</value>
+         <value>//span[.//span[text() = &quot;${nodeName}&quot;]]/..</value>
       </entry>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

@@ -31,9 +31,6 @@ class AvoidOpenBrowserLoop {
 	def sampleBeforeTestCase(TestCaseContext testCaseContext) {
 		if(GlobalVariable.avoidOpenBrowserLoopF) {
 			WebUI.navigateToUrl(GlobalVariable.webUrl)
-			WebUI.scrollToElement(findTestObject('Home/h5 - elements'), 1)
-			WebUI.click(findTestObject('Home/h5 - elements'))
-			WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
 		}
 		
 	}
@@ -56,7 +53,8 @@ class AvoidOpenBrowserLoop {
 	@BeforeTestSuite
 	def sampleBeforeTestSuite(TestSuiteContext testSuiteContext) {
 		if(GlobalVariable.avoidOpenBrowserLoopF) {
-			WebUI.openBrowser('')
+			WebUI.openBrowser(GlobalVariable.webUrl)
+			WebUI.maximizeWindow()
 		}
 	}
 

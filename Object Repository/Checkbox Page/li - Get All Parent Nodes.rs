@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span - Radio Button</name>
+   <name>li - Get All Parent Nodes</name>
    <tag></tag>
-   <elementGuidId>fef2251f-6746-4352-a2d9-92e85fcd0fd8</elementGuidId>
+   <elementGuidId>9ddb428d-1acd-4fb9-b2ae-42ab3fad7a79</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//span[text() = &quot;Radio Button&quot;]</value>
+         <value>//li[contains(@class,&quot;rct-node-parent&quot;)]</value>
       </entry>
       <entry>
          <key>BASIC</key>
