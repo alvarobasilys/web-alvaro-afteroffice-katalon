@@ -21,23 +21,21 @@ import org.openqa.selenium.Keys as Keys
 if(!GlobalVariable.avoidOpenBrowserLoopF) {
 	'Open Web'
 	WebUI.openBrowser(GlobalVariable.webUrl)
-	
-	'Scroll to element'
-	WebUI.scrollToElement(findTestObject('Home/h5 - elements'), 1)
-	
-	'Click "Elements" menu'
-	WebUI.click(findTestObject('Home/h5 - elements'))
-	
-	'Click "Text Box" page on menu list'
-	WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
 	}
 
+'Scroll to element'
+WebUI.scrollToElement(findTestObject('Home/h5 - elements'), 1)
+	
+'Click "Elements" menu'
+WebUI.click(findTestObject('Home/h5 - elements'))
 
 
+'Scroll to element'
+WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Text Box'), 1)
+'Click "Text Box" page on menu list'
+WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
 
 
-
-//WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
 'Input Full Name from data binding in Full Name field'
 WebUI.setText(findTestObject('Text Box Page/input - Full Name'), fullName)
 
@@ -50,6 +48,8 @@ WebUI.setText(findTestObject('Text Box Page/textarea - Current Address'), curren
 'Input permanent address from data binding in current permanent address field'
 WebUI.setText(findTestObject('Text Box Page/textarea - Permanent Address'), permanentAddress)
 
+'Scroll to element'
+WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Text Box'), 1)
 'Submit form'
 WebUI.click(findTestObject('Text Box Page/button - Submit'))
 
