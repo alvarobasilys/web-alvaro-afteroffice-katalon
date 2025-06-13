@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>web-niar-afteroffice-katalon</name>
+   <name>web-alvaro-afteroffice-katalon</name>
    <tag></tag>
    <UUID>e9647a48-46e2-4407-9e67-aaf4c5fbd755</UUID>
    <createdEdition>FREE</createdEdition>
@@ -11,7 +11,7 @@
    <modifiedEdition>ENTERPRISE</modifiedEdition>
    <modifiedVersion>10.2.1</modifiedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>C:\Users\Alvaro Basily\git\web-niar-afteroffice-katalon\web-niar-afteroffice-katalon.prj</projectFileLocation>
+   <projectFileLocation>C:\Users\Alvaro Basily\git\web-alvaro-afteroffice-katalon\web-niar-afteroffice-katalon.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
