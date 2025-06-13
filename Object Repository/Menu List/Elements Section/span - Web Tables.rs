@@ -7,11 +7,10 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[./span[@class = &quot;group-header&quot;]]//span[text() = &quot;Web Tables&quot;]</value>
+         <value>//span[text() = &quot;Web Tables&quot;]</value>
       </entry>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
