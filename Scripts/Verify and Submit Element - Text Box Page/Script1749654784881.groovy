@@ -21,7 +21,8 @@ import org.openqa.selenium.Keys as Keys
 if(!GlobalVariable.avoidOpenBrowserLoopF) {
 	'Open Web'
 	WebUI.openBrowser(GlobalVariable.webUrl)
-	}
+	WebUI.maximizeWindow()
+}
 
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Home/h5 - elements'), 1)

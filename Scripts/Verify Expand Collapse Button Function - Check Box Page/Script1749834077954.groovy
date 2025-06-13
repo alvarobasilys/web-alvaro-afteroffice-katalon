@@ -21,6 +21,7 @@ import org.openqa.selenium.WebElement as WebElement
 if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
     'Open Web'
     WebUI.openBrowser(GlobalVariable.webUrl)
+	WebUI.maximizeWindow()
 }
 
 'Scroll to element'
