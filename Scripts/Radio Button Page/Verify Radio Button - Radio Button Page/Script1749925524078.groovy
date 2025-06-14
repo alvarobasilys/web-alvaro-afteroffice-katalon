@@ -81,3 +81,7 @@ WebUI.verifyElementChecked(findTestObject('Radio Button Page/input - Yes Radio B
 'Verify output appropriate'
 WebUI.verifyElementText(findTestObject('Object Repository/Radio Button Page/span - Output Text'), 'Yes')
 
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+	'Close Browser'
+	WebUI.closeBrowser()
+}

@@ -170,5 +170,9 @@ while (loopStatus) {
     }
 }
 
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+	'Close Browser'
+	WebUI.closeBrowser()
+}
 
 

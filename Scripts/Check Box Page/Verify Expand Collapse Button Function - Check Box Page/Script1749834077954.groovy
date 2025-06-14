@@ -86,3 +86,9 @@ for (int i = 0; i < nodeElements.size(); ++i) {
         true)
 }
 
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+	'Close Browser'
+	WebUI.closeBrowser()
+}
+
+

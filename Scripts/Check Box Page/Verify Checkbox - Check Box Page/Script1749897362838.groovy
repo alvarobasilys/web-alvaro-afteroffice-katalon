@@ -142,3 +142,9 @@ for (int i = 0; i < nodes.size(); ++i) {
     WebUI.click(findTestObject('Object Repository/Checkbox Page/span - Node Title by Node Name', [('nodeName') : nodeName]))
 }
 
+
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+	'Close Browser'
+	WebUI.closeBrowser()
+}
+
