@@ -91,3 +91,9 @@ if ((permanentAddress != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+
 }
 
 
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+	'Close Browser'
+	WebUI.closeBrowser()
+}
+
+

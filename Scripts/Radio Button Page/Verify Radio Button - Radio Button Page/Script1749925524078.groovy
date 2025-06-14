@@ -33,7 +33,7 @@ WebUI.click(findTestObject('Home/h5 - elements'))
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Radio Button'), 1)
 
-'Click "Text Box" page on menu list'
+'Click "Radio Button" page on menu list'
 WebUI.click(findTestObject('Menu List/Elements Section/span - Radio Button'))
 
 'Verify no radio button disabled'
@@ -81,3 +81,7 @@ WebUI.verifyElementChecked(findTestObject('Radio Button Page/input - Yes Radio B
 'Verify output appropriate'
 WebUI.verifyElementText(findTestObject('Object Repository/Radio Button Page/span - Output Text'), 'Yes')
 
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+	'Close Browser'
+	WebUI.closeBrowser()
+}
