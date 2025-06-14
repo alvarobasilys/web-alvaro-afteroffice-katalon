@@ -33,7 +33,7 @@ WebUI.click(findTestObject('Home/h5 - elements'))
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Radio Button'), 1)
 
-'Click "Text Box" page on menu list'
+'Click "Radio Button" page on menu list'
 WebUI.click(findTestObject('Menu List/Elements Section/span - Radio Button'))
 
 'Verify no radio button disabled'
