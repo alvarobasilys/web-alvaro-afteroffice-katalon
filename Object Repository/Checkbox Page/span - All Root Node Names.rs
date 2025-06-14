@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span - Web Tables</name>
+   <name>span - All Root Node Names</name>
    <tag></tag>
-   <elementGuidId>f8b018fa-4f28-4937-9d7a-1e1042f61a78</elementGuidId>
+   <elementGuidId>47f9e235-1689-473e-b79c-2b3331fc32cf</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//span[text() = &quot;Web Tables&quot;]</value>
+         <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>BASIC</key>
+         <key>XPATH</key>
+         <value>//div[@id = &quot;tree-node&quot;]/ol/li[contains(@class,&quot;rct-node-parent&quot;)]/span//span[@class = &quot;rct-title&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

@@ -21,7 +21,8 @@ import org.openqa.selenium.WebElement as WebElement
 if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
     'Open Web'
     WebUI.openBrowser(GlobalVariable.webUrl)
-	WebUI.maximizeWindow()
+
+    WebUI.maximizeWindow()
 }
 
 'Scroll to element'
@@ -33,13 +34,13 @@ WebUI.click(findTestObject('Home/h5 - elements'))
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Check Box'), 1)
 
-'Click "Text Box" page on menu list'
+'Click "Check Box" page on menu list'
 WebUI.click(findTestObject('Menu List/Elements Section/span - Check Box'))
 
 WebUI.comment('Expand node by click toggle')
 
 'Check default condition, only root/expanded parent nodes that can be found'
-List<WebElement> nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - Get All Parent Node Names'), 
+List<WebElement> nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - All Parent Node Names'), 
     1)
 
 List<String> nodeNames = []
@@ -48,7 +49,7 @@ for (int i = 0; i < nodeElements.size(); ++i) {
     nodeNames.add(WebUI.getText(WebUI.convertWebElementToTestObject(nodeElements[i])))
 }
 
-int countTemp
+int countTemp,countTempNew
 
 boolean loopStatus = true
 
@@ -56,8 +57,13 @@ boolean loopStatus = true
 while (loopStatus) {
     for (int i = 0; i < nodeNames.size(); ++i) {
         'Count child node from parent node'
-        countTemp = WebUI.findWebElements(findTestObject('Checkbox Page/svg - Get All Childs From Current Node By Node Name', 
-                [('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size()
+		if(WebUI.verifyElementNotPresent(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name', 
+                [('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL)) {
+			countTemp = 0
+		}else {
+			countTemp = WebUI.findWebElements(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name',
+				[('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size()
+		}
 
         'Scroll to element'
         WebUI.scrollToElement(findTestObject('Checkbox Page/button - Toggle Node by Node Name', [('nodeName') : nodeNames[
@@ -66,13 +72,20 @@ while (loopStatus) {
         'Click toggle to expand'
         WebUI.click(findTestObject('Checkbox Page/button - Toggle Node by Node Name', [('nodeName') : nodeNames[i]]))
 
+		if(WebUI.verifyElementPresent(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name',
+			[('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL)) {
+		countTempNew = WebUI.findWebElements(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name',
+				[('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size()
+		}else {
+			countTempNew = 0
+		}
+		
         'After toggle clicked, parent node atleast have 1 child node'
-        WebUI.verifyGreaterThan(WebUI.findWebElements(findTestObject('Checkbox Page/svg - Get All Childs From Current Node By Node Name', 
-                    [('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size(), countTemp)
+        WebUI.verifyGreaterThan(countTempNew, countTemp)
     }
     
     'update nodeNames'
-    nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - Get All Parent Node Names'), 1, FailureHandling.OPTIONAL)
+    nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - All Parent Node Names'), 1, FailureHandling.OPTIONAL)
 
     'update nodeNames'
     nodeNames = []
@@ -80,7 +93,7 @@ while (loopStatus) {
     for (int i = 0; i < nodeElements.size(); ++i) {
         String tempName = WebUI.getText(WebUI.convertWebElementToTestObject(nodeElements[i]))
 
-        if (WebUI.getAttribute(findTestObject('Checkbox Page/li - Get Node by Node Name', [('nodeName') : tempName]), 'class').contains(
+        if (WebUI.getAttribute(findTestObject('Checkbox Page/li - Node by Node Name', [('nodeName') : tempName]), 'class').contains(
             'rct-node-collapsed')) {
             nodeNames.add(tempName)
         }
@@ -91,10 +104,9 @@ while (loopStatus) {
     }
 }
 
-
 WebUI.comment('Collapse node by click toggle')
 
-nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - Get All Parent Node Names'), 1)
+nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - All Parent Node Names'), 1)
 
 nodeNames = []
 
@@ -110,8 +122,12 @@ loopStatus = true
 while (loopStatus) {
     for (int i = 0; i < nodeNames.size(); ++i) {
         'Count child node from parent node'
-        countTemp = WebUI.findWebElements(findTestObject('Checkbox Page/svg - Get All Childs From Current Node By Node Name', 
+		if(WebUI.verifyElementPresent(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name',
+			[('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL)) {
+			countTemp =  WebUI.findWebElements(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name', 
                 [('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size()
+		}else {
+        countTemp = 0}
 
         'Scroll to element'
         WebUI.scrollToElement(findTestObject('Checkbox Page/button - Toggle Node by Node Name', [('nodeName') : nodeNames[
@@ -120,13 +136,20 @@ while (loopStatus) {
         'Click toggle to expand'
         WebUI.click(findTestObject('Checkbox Page/button - Toggle Node by Node Name', [('nodeName') : nodeNames[i]]))
 
+		if(WebUI.verifyElementNotPresent(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name',
+			[('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL)) {
+			countTempNew =  0
+		}else {
+		countTempNew = WebUI.findWebElements(findTestObject('Checkbox Page/svg - All Childs From Current Node By Node Name',
+				[('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size()
+		}
+		
         'After toggle clicked, parent node atleast have 1 child node'
-        WebUI.verifyLessThan(WebUI.findWebElements(findTestObject('Checkbox Page/svg - Get All Childs From Current Node By Node Name', 
-                    [('nodeName') : nodeNames[i]]), 1, FailureHandling.OPTIONAL).size(), countTemp)
+        WebUI.verifyLessThan(countTempNew, countTemp)
     }
     
     'update nodeNames'
-    nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - Get All Parent Node Names'), 1, FailureHandling.OPTIONAL)
+    nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/span - All Parent Node Names'), 1, FailureHandling.OPTIONAL)
 
     'update nodeNames'
     nodeNames = []
@@ -134,7 +157,7 @@ while (loopStatus) {
     for (int i = 0; i < nodeElements.size(); ++i) {
         String tempName = WebUI.getText(WebUI.convertWebElementToTestObject(nodeElements[i]))
 
-        if (WebUI.getAttribute(findTestObject('Checkbox Page/li - Get Node by Node Name', [('nodeName') : tempName]), 'class').contains(
+        if (WebUI.getAttribute(findTestObject('Checkbox Page/li - Node by Node Name', [('nodeName') : tempName]), 'class').contains(
             'rct-node-expanded')) {
             nodeNames.add(tempName)
         }
@@ -146,5 +169,6 @@ while (loopStatus) {
         loopStatus = false
     }
 }
+
 
 

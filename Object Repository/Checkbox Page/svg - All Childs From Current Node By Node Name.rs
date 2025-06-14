@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>svg - Get All Parents From Current Node By Node Name</name>
+   <name>svg - All Childs From Current Node By Node Name</name>
    <tag></tag>
-   <elementGuidId>c70a53ef-3f48-444f-ac7d-251cec534861</elementGuidId>
+   <elementGuidId>608a330b-3283-47d5-8565-eace71ab9f53</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>(//span[..//span[text() = &quot;${nodeName}&quot;]]//span[@class=&quot;rct-checkbox&quot;]/*[contains(@class,&quot;rct-icon&quot;)])[position() &lt; last()]</value>
+         <value>//span[.//span[text() = &quot;${nodeName}&quot;]]/../ol//span[@class = &quot;rct-checkbox&quot;]/*[contains(@class,&quot;rct-icon&quot;)]</value>
       </entry>
       <entry>
          <key>BASIC</key>

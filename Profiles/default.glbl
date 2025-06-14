@@ -12,9 +12,16 @@
       <valueType>STRING</valueType>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description></description>
+      <description>Open Browser before test suite start</description>
       <initValue>true</initValue>
       <name>avoidOpenBrowserLoopF</name>
       <protected>false</protected>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Delay between TC to avoid stuck</description>
+      <initValue>250</initValue>
+      <name>delay</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

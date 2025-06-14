@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>li - Get Node by Node Name</name>
+   <name>svg - Current Node By Node Name</name>
    <tag></tag>
-   <elementGuidId>f55da4ca-a5fd-48a5-ad76-6e520846181f</elementGuidId>
+   <elementGuidId>ea32d233-e6e6-4f2d-9ac9-98d75dc5c1c3</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//span[.//span[text() = &quot;${nodeName}&quot;]]/..</value>
+         <key>BASIC</key>
       </entry>
       <entry>
-         <key>BASIC</key>
-         <value></value>
+         <key>XPATH</key>
+         <value>//label[./span[text() = &quot;${nodeName}&quot;]]/span[@class = &quot;rct-checkbox&quot;]/*[contains(@class,&quot;rct-icon&quot;)]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

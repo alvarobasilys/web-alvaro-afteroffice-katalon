@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span - Get All Parent Node Names</name>
+   <name>svg - All Parents From Current Node By Node Name</name>
    <tag></tag>
-   <elementGuidId>98b57456-f40e-4fc4-bd45-2f808738b1c9</elementGuidId>
+   <elementGuidId>ebd13afe-5da6-4a5c-a117-0b37d339f16b</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//li[contains(@class,&quot;rct-node-parent&quot;)]/span//span[@class = 'rct-title']</value>
+         <value>(//span[..//span[text() = &quot;${nodeName}&quot;]]//span[@class=&quot;rct-checkbox&quot;]/*[contains(@class,&quot;rct-icon&quot;)])[position() &lt; last()]</value>
       </entry>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

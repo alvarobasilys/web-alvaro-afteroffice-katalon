@@ -37,7 +37,7 @@ WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Check Bo
 WebUI.click(findTestObject('Menu List/Elements Section/span - Check Box'))
 
 'Check default condition, only root/expanded parent nodes that can be found'
-List<WebElement> nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/li - Get All Parent Nodes'), 1)
+List<WebElement> nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/li - All Parent Nodes'), 1)
 
 'Save initial total node'
 int initTotalNodesFound = nodeElements.size()
@@ -54,7 +54,7 @@ WebUI.scrollToElement(findTestObject('Checkbox Page/button - Expand All Button')
 WebUI.click(findTestObject('Checkbox Page/button - Expand All Button'))
 
 'Check parent nodes after expanded button clicked, only root/expanded parent nodes that can be found'
-nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/li - Get All Parent Nodes'), 1)
+nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/li - All Parent Nodes'), 1)
 
 'More total expanded parent nodes after expanded button clicked'
 WebUI.verifyGreaterThan(nodeElements.size(), initTotalNodesFound)
@@ -75,7 +75,7 @@ WebUI.scrollToElement(findTestObject('Checkbox Page/button - Collapse All Button
 WebUI.click(findTestObject('Checkbox Page/button - Collapse All Button'))
 
 'Check parent nodes after collapse button clicked, only root/expanded parent nodes that can be found'
-nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/li - Get All Parent Nodes'), 1)
+nodeElements = WebUI.findWebElements(findTestObject('Checkbox Page/li - All Parent Nodes'), 1)
 
 'More total expanded parent nodes after expanded button clicked'
 WebUI.verifyLessThan(nodeElements.size(), initTotalNodesFound)
