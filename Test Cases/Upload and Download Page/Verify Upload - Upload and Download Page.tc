@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Upload - Upload and Download Page</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>b5b2d437-b7f7-4acb-a7ad-e5a4edf03523</testCaseGuid>
+</TestCaseEntity>
