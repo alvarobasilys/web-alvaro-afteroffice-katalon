@@ -17,25 +17,24 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
+    'Open Web'
+    WebUI.openBrowser(GlobalVariable.webUrl)
 
-if(!GlobalVariable.avoidOpenBrowserLoopF) {
-	'Open Web'
-	WebUI.openBrowser(GlobalVariable.webUrl)
-	WebUI.maximizeWindow()
+    WebUI.maximizeWindow()
 }
 
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Home/h5 - elements'), 1)
-	
+
 'Click "Elements" menu'
 WebUI.click(findTestObject('Home/h5 - elements'))
 
-
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Text Box'), 1)
+
 'Click "Text Box" page on menu list'
 WebUI.click(findTestObject('Menu List/Elements Section/span - Text Box'))
-
 
 'Input Full Name from data binding in Full Name field'
 WebUI.setText(findTestObject('Text Box Page/input - Full Name'), fullName)
@@ -51,49 +50,60 @@ WebUI.setText(findTestObject('Text Box Page/textarea - Permanent Address'), perm
 
 'Scroll to element'
 WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Text Box'), 1)
+
 'Submit form'
-WebUI.click(findTestObject('Text Box Page/button - Submit'))
+WebUI.click(findTestObject('Text Box Page/button - Submit'), FailureHandling.STOP_ON_FAILURE)
 
-if ((fullName != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'))) {
-    WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']))
+/*
+ * The form can only be sent if the email format is appropriate, then the output will be displayed according to the inputted data.
+ * There's 2 condition:
+ * - Inappropriate email format but email not empty (Need to specify due blank email == Inappropriate Email): The form cannot be submitted, so no output appears
+ * - Email format appropriate or Email Null: Form can be submitted, output based on input data
+*/
 
-    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 'Name:' + fullName)
-} else {
-    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 1)
+'Verify input email format'
+boolean emailFormatF = email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'
+
+if(!emailFormatF && email != '') {
+	WebUI.verifyMatch(WebUI.getAttribute(findTestObject('Text Box Page/input - Email'), 'class'), '.*field-error.*', true)
+	WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 1)
+	WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 1)
+	WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 1)
+	WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 1)
+}else{
+	if(fullName == ''){
+		WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 1)
+	}else {
+		WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']))
+		WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'name']), 'Name:' + fullName)
+	}
+	
+	if(email == ''){
+		WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 1)
+	}else {
+		WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']))
+		WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 'Email:' + email)
+	}
+	
+	if(currentAddress == ''){
+		WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 1)
+	}else {
+		WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']))
+		WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 'Current Address :' + currentAddress)
+	}
+	
+	if(permanentAddress == ''){
+		WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 1)
+	}else {
+		WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']))
+		WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 'Permanent Address :' +
+		permanentAddress, FailureHandling.CONTINUE_ON_FAILURE)
+	}
 }
-
-if (email == '') {
-    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 1)
-} else if (!(email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')) {
-    WebUI.verifyMatch(WebUI.getAttribute(findTestObject('Text Box Page/input - Email'), 'class'), '.*field-error.*', true)
-} else {
-    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'email']), 'Email:' + email)
-}
-
-if ((currentAddress != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'))) {
-    WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']))
-
-    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 'Current Address :' + 
-        currentAddress)
-} else {
-    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'currentAddress']), 
-        1)
-}
-
-if ((permanentAddress != '') && ((email == '') || (email ==~ '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'))) {
-    WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']))
-
-    WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 'Permananet Address :' + 
-        permanentAddress)
-} else {
-    WebUI.verifyElementNotPresent(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 
-        1)
-}
-
 
 if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
-	'Close Browser'
-	WebUI.closeBrowser()
+    'Close Browser'
+    WebUI.closeBrowser()
 }
 
 

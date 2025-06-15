@@ -6,28 +6,37 @@
    <comment></comment>
    <recordOption>OTHER</recordOption>
    <testCaseGuid>afc3600f-c2a7-4ca3-8109-764082410207</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>c061c6e4-9104-4dbb-8871-89edc1c6b99c</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/Data for Text Box Page</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>c061c6e4-9104-4dbb-8871-89edc1c6b99c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>fullName</value>
       <variableId>8f418470-8492-45bc-9d39-08c7073f997d</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>c061c6e4-9104-4dbb-8871-89edc1c6b99c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>email</value>
       <variableId>6d422c19-da8f-4da4-b58a-47349665163f</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>c061c6e4-9104-4dbb-8871-89edc1c6b99c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>currentAddress</value>
       <variableId>d098fc8e-0a3d-42d3-a575-7cbdc0092891</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>c061c6e4-9104-4dbb-8871-89edc1c6b99c</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>permanentAddress</value>
       <variableId>fc91dfc9-806a-4ccc-ae55-232a18e708be</variableId>
    </variableLinks>
    <variable>

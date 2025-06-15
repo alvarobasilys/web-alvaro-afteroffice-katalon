@@ -19,7 +19,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Delay between TC to avoid stuck when using data binding</description>
-      <initValue>250</initValue>
+      <initValue>200</initValue>
       <name>delay</name>
       <protected>false</protected>
       <valueType>NUMBER</valueType>
