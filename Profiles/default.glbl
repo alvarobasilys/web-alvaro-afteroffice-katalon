@@ -18,10 +18,17 @@
       <protected>false</protected>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
-      <description>Delay between TC to avoid stuck</description>
+      <description>Delay between TC to avoid stuck when using data binding</description>
       <initValue>250</initValue>
       <name>delay</name>
       <protected>false</protected>
       <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Input with relative path, add slash (\) at the beginning of string</description>
+      <initValue>'\\Data Files\\Dummy Data\\dummyPng.png'</initValue>
+      <name>dummyPngPath</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
