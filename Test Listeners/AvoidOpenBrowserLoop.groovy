@@ -42,9 +42,6 @@ class AvoidOpenBrowserLoop {
 	 */
 	@AfterTestCase
 	def sampleAfterTestCase(TestCaseContext testCaseContext) {
-		if(GlobalVariable.avoidOpenBrowserLoopF) {
-			WebUI.deleteAllCookies()
-		}
 	}
 
 	/**
@@ -66,7 +63,6 @@ class AvoidOpenBrowserLoop {
 	@AfterTestSuite
 	def sampleAfterTestSuite(TestSuiteContext testSuiteContext) {
 		if(GlobalVariable.avoidOpenBrowserLoopF) {
-			WebUI.deleteAllCookies()
 			WebUI.closeBrowser()
 		}
 	}

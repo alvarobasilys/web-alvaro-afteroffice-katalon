@@ -37,13 +37,13 @@ WebUI.scrollToElement(findTestObject('Menu List/Elements Section/span - Upload a
 WebUI.click(findTestObject('Menu List/Elements Section/span - Upload and Download'))
 
 'Get current directory for access data files folder'
-String cd = new File('').absolutePath
+String currentDir = new File('').absolutePath
 
 'Verify output element not present before selecting file'
 WebUI.verifyElementNotPresent(findTestObject('Upload and Download Page/p - Upload Output Text'), 1)
 
 'Get file'
-WebUI.uploadFile(findTestObject('Upload and Download Page/input - Upload File Button'), cd + GlobalVariable.dummyPngPath)
+WebUI.uploadFile(findTestObject('Upload and Download Page/input - Upload File Button'), currentDir + GlobalVariable.dummyPngPath)
 
 'Verify output element present after selecting file'
 WebUI.verifyElementPresent(findTestObject('Upload and Download Page/p - Upload Output Text'), 1)
