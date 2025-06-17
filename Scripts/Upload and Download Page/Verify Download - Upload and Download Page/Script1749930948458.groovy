@@ -38,7 +38,7 @@ WebUI.click(findTestObject('Menu List/Elements Section/span - Upload and Downloa
 
 'Verify download process'
 List<String> fileNames = CustomKeywords.'customPackage.customKeyword.verifyDownloadFile'(findTestObject('Upload and Download Page/a - Download Button'), 
-    'C:\\Users\\Alvaro Basily\\Downloads\\', ["sampleFile.jpeg"],1000)
+    GlobalVariable.downloadFolderPath, ["sampleFile.jpeg"],1000)
 
 'Verify files not corrupted'
 CustomKeywords.'customPackage.customKeyword.verifyFileSize'('C:\\Users\\Alvaro Basily\\Downloads\\', fileNames)

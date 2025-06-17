@@ -87,7 +87,6 @@ class customKeyword {
 				throw new Exception("The total successfully downloaded file ("+files.size()+" file) is different from expectations ("+expectedFileNames.size()+" file).")
 			}else {
 				for(int i = 0;i < expectedFileNames.size();++i) {
-					assert files.contains(expectedFileNames[i])
 					WebUiBuiltInKeywords.verifyEqual(files.contains(expectedFileNames[i]), true)
 				}
 			}
