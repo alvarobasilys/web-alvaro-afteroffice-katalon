@@ -31,4 +31,11 @@
       <protected>false</protected>
       <valueType>STRING</valueType>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>For testing download function</description>
+      <initValue>'C:\\Users\\Alvaro Basily\\Downloads\\'</initValue>
+      <name>downloadFolderPath</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
