@@ -69,16 +69,16 @@ class customKeyword {
 				for (int i = 0; i < initFiles.size(); ++i) {
 					files.remove(initFiles[i])
 				}
-				
+
 				currTime = System.currentTimeMillis()
-				
+
 				intervalTime = currTime - startTime
-				
+
 				if( intervalTime > timeout) {
 					files = []
 					throw new Exception("The download process exceeds the time limit, "+intervalTime+" ms")
 				}
-				
+
 				if(!files.any { it =~ /(?i)\.(?:tmp|crdownload)$/ }) {
 					finishDownloadStatus = false
 				}
@@ -88,6 +88,7 @@ class customKeyword {
 			}else {
 				for(int i = 0;i < expectedFileNames.size();++i) {
 					assert files.contains(expectedFileNames[i])
+					WebUiBuiltInKeywords.verifyEqual(files.contains(expectedFileNames[i]), true)
 				}
 			}
 		}catch(Exception e) {
