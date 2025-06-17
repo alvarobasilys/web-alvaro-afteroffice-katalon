@@ -102,8 +102,7 @@ if(!emailFormatF && email != '') {
 }
 
 if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
-    'Close Browser'
+	'Close Browser'
     WebUI.closeBrowser()
 }
-
 
