@@ -16,6 +16,11 @@ Assume we're going to execute `Full Testing Test Suite`, there're several prepar
 - When `avoidOpenBrowserLoopF = 1` testing process easily broken/stuck due waiting web load properly. Need add delay / set continue to run after timeout in cofig to avoid this problem
 - This project develop in Windows environment and not yet tested in other environments. 
 
+### Result Report Example
+Please check the result report example. [Result Report Example](https://htmlpreview.github.io/?https://github.com/alvarobasilys/web-alvaro-afteroffice-katalon/blob/main/Example%20Report%20Result/20250618_202906.html)
+
+Some test cases mark as failure due some typo in mock web
+
 ### Documentation 
 
 ### Profile
