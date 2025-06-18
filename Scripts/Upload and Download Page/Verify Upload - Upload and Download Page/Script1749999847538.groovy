@@ -43,12 +43,12 @@ String currentDir = new File('').absolutePath
 WebUI.verifyElementNotPresent(findTestObject('Upload and Download Page/p - Upload Output Text'), 1)
 
 'Get file'
-WebUI.uploadFile(findTestObject('Upload and Download Page/input - Upload File Button'), currentDir + GlobalVariable.dummyPngPath)
+WebUI.uploadFile(findTestObject('Upload and Download Page/input - Upload File Button'), currentDir + GlobalVariable.dummyUploadPath)
 
 'Verify output element present after selecting file'
 WebUI.verifyElementPresent(findTestObject('Upload and Download Page/p - Upload Output Text'), 1)
 
-WebUI.verifyMatch((WebUI.getText(findTestObject('Upload and Download Page/p - Upload Output Text')) =~ /[^\\]+$/)[0]  , (GlobalVariable.dummyPngPath =~ /[^\\]+$/)[0], false)
+WebUI.verifyMatch((WebUI.getText(findTestObject('Upload and Download Page/p - Upload Output Text')) =~ /[^\\]+$/)[0]  , (GlobalVariable.dummyUploadPath =~ /[^\\]+$/)[0], false)
 
 if (!(GlobalVariable.avoidOpenBrowserLoopF)) {
     WebUI.closeBrowser()

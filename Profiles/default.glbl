@@ -19,7 +19,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description>Delay between TC to avoid stuck when using data binding</description>
-      <initValue>100</initValue>
+      <initValue>800</initValue>
       <name>delay</name>
       <protected>false</protected>
       <valueType>NUMBER</valueType>
@@ -27,7 +27,7 @@
    <GlobalVariableEntity>
       <description>Input with relative path, add slash (\) at the beginning of string</description>
       <initValue>'\\Data Files\\Dummy Data\\dummyPng.png'</initValue>
-      <name>dummyPngPath</name>
+      <name>dummyUploadPath</name>
       <protected>false</protected>
       <valueType>STRING</valueType>
    </GlobalVariableEntity>
@@ -37,5 +37,11 @@
       <name>downloadFolderPath</name>
       <protected>false</protected>
       <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>for verify the downloaded file name</description>
+      <initValue>['sampleFile.jpeg']</initValue>
+      <name>fileNames</name>
+      <protected>false</protected>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
