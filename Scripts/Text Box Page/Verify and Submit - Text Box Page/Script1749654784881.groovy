@@ -97,7 +97,7 @@ if(!emailFormatF && email != '') {
 	}else {
 		WebUI.verifyElementVisible(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']))
 		WebUI.verifyElementText(findTestObject('Text Box Page/div - Output Result', [('idResult') : 'permanentAddress']), 'Permanent Address :' +
-		permanentAddress, FailureHandling.CONTINUE_ON_FAILURE)
+		permanentAddress)
 	}
 }
 

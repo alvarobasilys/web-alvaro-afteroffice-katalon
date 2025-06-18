@@ -42,15 +42,13 @@ class customKeyword {
 	/**
 	 * Verify files successfully downloaded after trigger button clicked
 	 * This method checks that the download does not exceed the time limit,
-	 * that the total file size matches the expected size,
-	 * and that the file name corresponds to the expected name.
+	 * and the file name is matched to the expected name.
 	 * @param dowloadButton Katalon test object for trigger file download process
 	 * @param expectedFileNames Verify all actual downloaded file names are appropriate with expected file names
 	 * @param downloadDir Download folder directory, make sure add slash at the end of string
 	 * @param timeout Maximum time (in ms) file downloaded
 	 * @return files List of file name
 	 */
-	@Keyword
 	def List<String> verifyDownloadFile(TestObject dowloadButton, String downloadDir, List<String> expectedFileNames,Long timeout) {
 
 		List initFiles = new File(downloadDir).list()
@@ -97,10 +95,9 @@ class customKeyword {
 	}
 	/**
 	 * Verify all downloaded files not corrupted/incompleted based on file size (file size >= 0 bytes)
-	 * @param fileDir Download folder directory, make sure add slash at the end of string
+	 * @param fileDir Download folder directory make sure add slash at the end of string
 	 * @param fileName List of file name
 	 */
-	@Keyword
 	def verifyFileSize(String fileDir, List<String> fileName) {
 		try {
 			for (int i = 0; i < fileName.size(); ++i) {
@@ -110,7 +107,7 @@ class customKeyword {
 				}
 				File file = new File(fileDir+fileName[i])
 				int fileSize = file.length()
-				if(fileSize < 0) {
+				if(fileSize == 0) {
 					throw new Exception("Document "+fileName[i]+" incompleted/corrupted")
 				}else {
 					KeywordUtil.markPassed("Document "+fileName[i]+" not corrupted, "+fileSize+" bytes")
