@@ -13,7 +13,7 @@ Assume we're going to execute `Full Testing Test Suite`, there're several prepar
 
 ### Some Issues. . . . . .
 - Headless browser not working, some buttons are covered with ads.
-- When `avoidOpenBrowserLoopF = 1` testing process easily broken/stuck. Need add delay to avoid this problem
+- When `avoidOpenBrowserLoopF = 1` testing process easily broken/stuck due waiting web load properly. Need add delay / set continue to run after timeout in cofig to avoid this problem
 - This project develop in Windows environment and not yet tested in other environments. 
 
 ### Documentation 
